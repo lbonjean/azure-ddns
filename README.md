@@ -1,3 +1,22 @@
+# Dns utilities
+## Dynamic DNS updater
+1. inadyn client
+Implemented in function Get-DDnsUpdate
+Client used in unifi devices.
+inadyn -1n --force --loglevel=DEBUG --config=/run/ddns-eth8-inadyn.conf
+
+2. Proximus internet box
+Function prxinternetbox, configered @lubon
+3. Watchguard devices
+
+## update named locations
+
+## Azure setup
+- create function with managed identity in ...dns-rg
+- assign dns permissions on RG to MI in order to allow updates
+- create dns zone
+
+
 # Azure DDNS
 Provides an Inadyn compatible  DynDNS2 API to be hosted by an Azure Function which uses an underlying Microsoft Azure hosted DNS Zone to maintain the IP address for a single A record.
 

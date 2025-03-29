@@ -8,7 +8,7 @@
         "methods": [
           "get"
         ],
-        "route": "nic/update"
+        "route": "prxInternetbox"
       },
       {
         "type": "http",

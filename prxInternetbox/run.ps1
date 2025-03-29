@@ -7,21 +7,21 @@ if ($env:IsDebugEnabled) {
     Wait-Debugger
 }
 
-$authHeader = $Request.Headers.Authorization
-if(-not $authHeader -or -not $authHeader.startsWith("Basic ")) {
-    Write-Error "The Basic authorization header was not provided in the request."
+# $authHeader = $Request.Headers.Authorization
+# if(-not $authHeader -or -not $authHeader.startsWith("Basic ")) {
+#     Write-Error "The Basic authorization header was not provided in the request."
 
-    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-        StatusCode = [HttpStatusCode]::Unauthorized
-    })
+#     Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+#         StatusCode = [HttpStatusCode]::Unauthorized
+#     })
 
-    exit
-}
+#     exit
+# }
 
 # Decode the username and password from the authorization header.
-$auth = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($authHeader.substring(6))).split(':')
-$username = $auth[0]
-$password = $auth[1]
+#$auth = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($authHeader.substring(6))).split(':')
+$username = $request.Query.username
+$password = $request.Query.password
 
 Write-Information "Authorization: $username / ********"
 Write-Information "Received request from ip address: $($Request.Headers['X-Forwarded-For'])"

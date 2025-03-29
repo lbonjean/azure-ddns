@@ -1,0 +1,103 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/powershell
+{
+	"name": "Funcdevelopment Environment",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	//"build": { "dockerfile": "Dockerfile" },
+	"image":"mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"username": "vscode",
+			"upgradePackages": "false",
+			"nonFreePackages": "true"
+		}, 
+		
+			"ghcr.io/devcontainers/features/powershell:1": {
+				"installModules": true,
+				"version":"latest",
+				"modules":[
+					"PowerShellGet",
+					//"PackageManagement",
+					"PSReadLine",
+					 "az.accounts",
+					 "az.resources",
+					 "az.billing",
+					 "az.costmanagement",
+					 "az.desktopvirtualization",
+					 "az.monitor",
+					 "Az.OperationalInsights",
+					 "Az.Compute",
+					 "Az.Storage",
+					 "Az.keyvault",
+					 "AzTable",
+					 "Microsoft.Graph.Authentication",
+					 "Microsoft.Graph.Users"
+
+					 // "az.compute",
+					// "az.storage",
+					// "az.network",
+					// "az.keyvault",
+					// "Microsoft.Graph.Authentication",
+					// "Microsoft.Graph.Users",
+					// "Microsoft.Graph.Groups",
+					// "Microsoft.Graph.identity.signins",
+					// "Microsoft.Graph.Identity.Governance",
+					// "Microsoft.Graph.Identity.DirectoryManagement",
+					// "AzTable"
+				]
+			},
+			"ghcr.io/devcontainers/features/azure-cli:1": {
+				"version": "latest",
+				"installbicep": true		
+			},
+			"ghcr.io/devcontainers/features/dotnet:2.2.0": {
+				"version": "latest",
+				"additionalVersions": "6.0",
+				"installModules": true,
+				"modules": [
+					"Microsoft.PowerShell.SecretManagement",
+					"Microsoft.PowerShell.SecretStore"
+				]
+			},
+			"ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1":{},
+		    "ghcr.io/jlaundry/devcontainer-features/mssql-odbc-driver:1": {}
+		
+	
+
+	},
+
+//	"postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\" && /workspaces/costfunctions/.devcontainer/setupdotnetencoretools.sh",
+	"postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\" ",
+	
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+				"terminal.integrated.defaultProfile.linux": "pwsh"
+			},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-vscode.powershell",
+				"ms-azuretools.vscode-azurefunctions",
+				"ms-azuretools.vscode-azurestorage",
+				"ms-azuretools.vscode-docker",
+				"ms-azuretools.vscode-azure-github-copilot",
+				"azurite.azurite",
+				"ms-azuretools.vscode-bicep",
+				"eamodio.gitlens"
+
+			]
+		}
+	}
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
