@@ -6,6 +6,9 @@
 	//"build": { "dockerfile": "Dockerfile" },
 	"image":"mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
 	"features": {
+				"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+				"packages": "dnsutils"
+			},
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": "true",
 			"username": "vscode",
@@ -32,7 +35,8 @@
 					 "Az.keyvault",
 					 "AzTable",
 					 "Microsoft.Graph.Authentication",
-					 "Microsoft.Graph.Users"
+					 "Microsoft.Graph.Users",
+					 "resolve-dnsname" // required to have resolve-dnsname available in pwsh
 
 					 // "az.compute",
 					// "az.storage",
@@ -62,6 +66,7 @@
 			},
 			"ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1":{},
 		    "ghcr.io/jlaundry/devcontainer-features/mssql-odbc-driver:1": {}
+
 		
 	
 
