@@ -3,6 +3,6 @@
 # See https://aka.ms/functionsmanageddependency for additional information.
 #
 @{
-    'Az' = '4.*'
+    'Az.Accounts' = '4.*'
     'Az.Dns' = '1.*'
 }

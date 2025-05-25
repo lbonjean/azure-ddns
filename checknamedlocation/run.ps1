@@ -16,7 +16,13 @@ $body = "This HTTP triggered function executed successfully. Pass a name in the 
 
 if ($name) {
     #$result = Resolve-DnsName -Name $name -Type A -ErrorAction SilentlyContinue
-    $result = (dig A +short $name)
+    $result = [System.Net.Dns]::GetHostAddresses($name)
+    try {
+        $result =([System.Net.Dns]::GetHostAddresses($name))[-1].IPAddressToString
+    }
+    catch {
+        $result = $null
+    }
     if ($result) {
         $body = "Resolved ip for $name is $result"
     } else {

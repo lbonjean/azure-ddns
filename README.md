@@ -15,6 +15,14 @@ Function prxinternetbox, configered @lubon
 - create function with managed identity in ...dns-rg
 - assign dns permissions on RG to MI in order to allow updates
 - create dns zone
+- create users assigned managed identity
+az identity create --name c0000-dns-updater --resource-group C0000-dns --location northeurope   
+
+az ad sp show --id 00000003-0000-0000-c000-000000000000 --query "appRoles[?value=='Policy.ReadWrite.ConditionalAccess'].id | [0]"      
+$body = "{'principalId':'ee7a6ed1-229c-4955-b584-d348bca16a26','resourceId':'f79779d2-dd10-4987-9ef4-0df42f29bed8','appRoleId':'01c0a623-fc9b-48e9-b794-0756f8e8f067'}"   
+az rest --method post --uri https://graph.microsoft.com/v1.0/servicePrincipals/ee7a6ed1-229c-4955-b584-d348bca16a26/appRoleAssignments --body $body --headers "Content-Type=application/json" 
+az functionapp identity assign --name c0000-dsn-flex --resource-group "C0000-dns" --identities '/subscriptions/581b4da9-cdaf-4cf0-8670-bc63030e183c/resourcegroups/C0000-dns/providers/Microsoft.ManagedIdentity/userAssignedIdentities/c0000-dns-updater'
+
 
 
 # Azure DDNS
