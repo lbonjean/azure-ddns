@@ -1,0 +1,3 @@
+[submodule "qlancfg"]
+	path = qlancfg
+	url = https://github.com/lubonbvba/qlancfg
