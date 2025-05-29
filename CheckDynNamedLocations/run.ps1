@@ -11,6 +11,13 @@ if ($Timer.IsPastDue) {
 # Write an information log with the current time.
 Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
 
+    $qvalue= @{
+        host   = "Dyn-*"
+        ip     = $null
+    }
+    Push-OutputBinding -Name qcheck -Value $qvalue
+
+<# 
 $locations=(Invoke-MgGraphRequest -Method GET https://graph.microsoft.com/v1.0/identity/conditionalAccess/namedLocations).Value | Where-Object {$_.displayname -Like "Dyn-*"  }
 foreach ($location in $locations) {
     $name = ($location.displayname -split "dyn-")[-1]
@@ -45,4 +52,4 @@ foreach ($location in $locations) {
         Write-Host "IP Address is the same as the one in the database. No action needed."
     }
     
-}
+} #>

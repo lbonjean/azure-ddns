@@ -18,6 +18,8 @@ if(-not $authHeader -or -not $authHeader.startsWith("Basic ")) {
     exit
 }
 
+
+
 # Decode the username and password from the authorization header.
 $auth = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($authHeader.substring(6))).split(':')
 $username = $auth[0]
@@ -167,6 +169,11 @@ if ($saveChanges) {
         StatusCode = [HttpStatusCode]::OK
         Body       = "good"
     })
+    $qvalue= @{
+        host   = $hostname
+        ip     = $ipAddr
+    }
+    Push-OutputBinding -Name qcheck -Value $qvalue
 
     exit
 } else {

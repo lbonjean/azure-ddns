@@ -5,10 +5,9 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	//"build": { "dockerfile": "Dockerfile" },
 	"image":"mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+//	"image":"mcr.microsoft.com/vscode/devcontainers/universal",
+
 	"features": {
-				"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-				"packages": "dnsutils"
-			},
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": "true",
 			"username": "vscode",
@@ -24,10 +23,11 @@
 					//"PackageManagement",
 					"PSReadLine",
 					 "az.accounts",
-					 "az.dns"
-					//  "az.resources",
+					 "az.resources",
+					 "az.dns",
+					 "microsoft.graph"
 					//  "az.billing",
-					//  "az.costmanagement",
+					//  "az.costmanagement",get
 					//  "az.desktopvirtualization",
 					//  "az.monitor",
 					//  "Az.OperationalInsights",
@@ -55,18 +55,27 @@
 				"version": "latest",
 				"installbicep": true		
 			},
-			"ghcr.io/devcontainers/features/dotnet:2.2.0": {
-				"version": "latest",
+			// "ghcr.io/devcontainers/features/dotnet:2.2.0": {
+			// 	"version": "latest",
+			// 	"additionalVersions": "6.0",
+			// 	"installModules": true,
+			// 	"modules": [
+			// 		"Microsoft.PowerShell.SecretManagement",
+			// 		"Microsoft.PowerShell.SecretStore"
+			// 	]
+			// },
+			"ghcr.io/devcontainers/features/dotnet:2.2.2": {
+				"version": "8.0",
 				"additionalVersions": "6.0",
-				"installModules": true,
-				"modules": [
-					"Microsoft.PowerShell.SecretManagement",
-					"Microsoft.PowerShell.SecretStore"
-				]
+				"dotnetRuntimeVersions": "8.0"
+				// "installModules": true,
+				// "modules": [
+				// 	"Microsoft.PowerShell.SecretManagement",
+				// 	"Microsoft.PowerShell.SecretStore"
+				// ]
 			},
 			"ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1":{},
 		    "ghcr.io/jlaundry/devcontainer-features/mssql-odbc-driver:1": {}
-
 		
 	
 

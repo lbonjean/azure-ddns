@@ -8,23 +8,33 @@
 #
 # You can define helper functions, run commands, or specify environment variables
 # NOTE: any variables defined that are not environment variables will get reset after the first execution
-if ($env:MSI_SECRET) {
-Connect-AzAccount -Identity
-    #Write-Host "Authenticated to Azure using Managed Identity with client ID: $($env:MSI_SECRET)"
-} else {
-    #Write-Host "No MSI_SECRET environment variable found. Skipping authentication."
-}
+# if ($env:MSI_SECRET) {
+#    Connect-AzAccount -Identity
+#      Write-Host "Authenticated to Azure using Managed Identity with client ID: $($env:MSI_SECRET)"
+#      get-azcontext
+#  } else {
+#      Write-Host "No MSI_SECRET environment variable found. Skipping authentication."
+#  }
 # Uncomment the next line to enable legacy AzureRm alias in Azure PowerShell.
 # Enable-AzureRmAlias
 if ($env:app_umi_client_id) {
-    #Connect-AzAccount -Identity -clientid $env:app_umi_client_id 
     Connect-MgGraph -Identity -ClientId $env:app_umi_client_id
-    Write-Host "Authenticated to Graph using Managed Identity with client ID: $($env:app_umi_client_id)"
-    Get-MgContext
+    Write-Host "Authenticated to Azure CLI using Managed Identity with client ID: $($env:app_umi_client_id)"
+    Connect-AzAccount -Identity -AccountId $env:app_umi_client_id 
+    Write-Host "Authenticated to Azure using Managed Identity with client ID: $($env:app_umi_client_id)"
+    $graphtoken = (Get-MgContext).AccessToken
 } else {
-    Write-Host "No app_umi_client_id environment variable found. Authenticating with default identity."
-    Connect-MgGraph -Identity 
-    # Connect-MgGraph -Identity # Uncomment this line if you want to connect without a specific client ID
+    #for debugging environement
+    # User needs to be logged on to Azure CLI before running the function app
+    #example: 
+    #az config set core.login_experience_v2=off
+    #az login --allow-no-subscription --use-device-code
+    #az account set -s <subscription-id to use>  
+    $aztoken = az account get-access-token --resource https://management.azure.com/ --query accessToken -o tsv 
+    $accountid=az account show --query user.name -o tsv
+    $subscriptionid=az account show --query id -o tsv  
+    Connect-AzAccount -AccessToken $aztoken -AccountId $accountid -Subscription $subscriptionid  
+  
 }
 
-# You can also define functions or aliases that can be referenced in any of your PowerShell functions.
+

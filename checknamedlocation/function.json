@@ -1,19 +1,11 @@
 {
   "bindings": [
     {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
+      "name": "QueueItem",
+      "type": "queueTrigger",
       "direction": "in",
-      "name": "Request",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "Response"
+      "queueName": "check-named-location",
+      "connection": "AzureWebJobsStorage"
     }
   ]
 }

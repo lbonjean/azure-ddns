@@ -14,6 +14,13 @@
         "type": "http",
         "direction": "out",
         "name": "Response"
-      }
+      },
+      {
+      "type": "queue",
+      "direction": "out",
+      "name": "qcheck",
+      "queueName": "check-named-location",
+      "connection": "AzureWebJobsStorage"
+    }
     ]
   }

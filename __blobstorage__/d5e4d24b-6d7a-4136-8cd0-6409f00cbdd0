@@ -1,0 +1,1 @@
+{"Last":"0001-01-01T00:00:00","Next":"2025-05-27T16:05:00+00:00","LastUpdated":"2025-05-27T15:09:06.4761416+00:00"}{"Timestamp":"2025-05-27T15:09:16.048053Z","NumberOfCores":16,"FunctionSnapshots":{}}{"Timestamp":"2025-05-27T15:10:36.1039184Z","NumberOfCores":16,"FunctionSnapshots":{"Host.Functions.CheckNamedLocation":{"Concurrency":1}}}

@@ -1,12 +1,57 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"label": "func start",
-			"type": "shell",
-			"command": "func start",
-			"problemMatcher": "$func-powershell-watch",
-			"isBackground": true
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "func",
+      "command": "extensions install",
+      "problemMatcher": [],
+      "label": "func: extensions install"
+    },
+    {
+      "type": "func",
+      "label": "func: host start",
+      "command": "host start",
+      "problemMatcher": "$func-powershell-watch",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "type": "func",
+      "command": "extensions install",
+      "problemMatcher": [],
+      "label": "func: extensions install"
+    },
+    {
+      "type": "func",
+      "command": "extensions install",
+      "problemMatcher": [],
+      "label": "func: extensions install"
+    },
+    {
+      "type": "func",
+      "command": "extensions install",
+      "problemMatcher": [],
+      "label": "func: extensions install"
+    },
+    {
+      "type": "func",
+      "command": "extensions install",
+      "problemMatcher": [],
+      "label": "func: extensions install"
+    },
+    {
+      "type": "func",
+      "command": "extensions install",
+      "problemMatcher": [],
+      "label": "func: extensions install"
+    },
+    {
+      "type": "func",
+      "command": "extensions install",
+      "problemMatcher": [],
+      "label": "func: extensions install"
+    }
+  ]
 }

@@ -45,7 +45,7 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">Cmdlet</S>
+            <S N="Key">Command</S>
             <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
               <LST>
@@ -91,14 +91,14 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">Workflow</S>
+            <S N="Key">RoleCapability</S>
             <Obj N="Value" RefId="4">
               <TNRef RefId="1" />
               <LST />
             </Obj>
           </En>
           <En>
-            <S N="Key">RoleCapability</S>
+            <S N="Key">Workflow</S>
             <Ref N="Value" RefId="4" />
           </En>
           <En>
@@ -106,7 +106,11 @@
             <Ref N="Value" RefId="4" />
           </En>
           <En>
-            <S N="Key">Command</S>
+            <S N="Key">Function</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
             <Obj N="Value" RefId="5">
               <TNRef RefId="1" />
               <LST>
@@ -151,10 +155,6 @@
               </LST>
             </Obj>
           </En>
-          <En>
-            <S N="Key">Function</S>
-            <Ref N="Value" RefId="4" />
-          </En>
         </DCT>
       </Obj>
       <Nil N="PowerShellGetFormatVersion" />
@@ -178,15 +178,15 @@
           <S N="releaseNotes">* Force 'Get-AzAccessToken' to always return SecureString as long as 'AsSecureString' is set</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">1083747</S>
-          <S N="downloadCount">637208510</S>
+          <S N="versionDownloadCount">3377176</S>
+          <S N="downloadCount">639620608</S>
           <S N="packageSize">9763928</S>
-          <S N="published">5/23/2025 7:10:50 AM +00:00</S>
-          <S N="created">5/23/2025 7:10:50 AM +00:00</S>
-          <S N="lastUpdated">5/24/2025 3:50:00 PM +00:00</S>
+          <S N="published">05/23/2025 07:10:50 +00:00</S>
+          <S N="created">05/23/2025 07:10:50 +00:00</S>
+          <S N="lastUpdated">05/27/2025 15:30:00 +00:00</S>
           <S N="tags">Azure ResourceManager ARM Accounts Authentication Environment Subscription PSModule PSEdition_Core PSEdition_Desktop PSCmdlet_Disable-AzDataCollection PSCommand_Disable-AzDataCollection PSCmdlet_Disable-AzContextAutosave PSCommand_Disable-AzContextAutosave PSCmdlet_Enable-AzDataCollection PSCommand_Enable-AzDataCollection PSCmdlet_Enable-AzContextAutosave PSCommand_Enable-AzContextAutosave PSCmdlet_Remove-AzEnvironment PSCommand_Remove-AzEnvironment PSCmdlet_Get-AzEnvironment PSCommand_Get-AzEnvironment PSCmdlet_Set-AzEnvironment PSCommand_Set-AzEnvironment PSCmdlet_Add-AzEnvironment PSCommand_Add-AzEnvironment PSCmdlet_Get-AzSubscription PSCommand_Get-AzSubscription PSCmdlet_Connect-AzAccount PSCommand_Connect-AzAccount PSCmdlet_Get-AzContext PSCommand_Get-AzContext PSCmdlet_Set-AzContext PSCommand_Set-AzContext PSCmdlet_Import-AzContext PSCommand_Import-AzContext PSCmdlet_Save-AzContext PSCommand_Save-AzContext PSCmdlet_Get-AzTenant PSCommand_Get-AzTenant PSCmdlet_Send-Feedback PSCommand_Send-Feedback PSCmdlet_Resolve-AzError PSCommand_Resolve-AzError PSCmdlet_Select-AzContext PSCommand_Select-AzContext PSCmdlet_Rename-AzContext PSCommand_Rename-AzContext PSCmdlet_Remove-AzContext PSCommand_Remove-AzContext PSCmdlet_Clear-AzContext PSCommand_Clear-AzContext PSCmdlet_Disconnect-AzAccount PSCommand_Disconnect-AzAccount PSCmdlet_Get-AzContextAutosaveSetting PSCommand_Get-AzContextAutosaveSetting PSCmdlet_Set-AzDefault PSCommand_Set-AzDefault PSCmdlet_Get-AzDefault PSCommand_Get-AzDefault PSCmdlet_Clear-AzDefault PSCommand_Clear-AzDefault PSCmdlet_Register-AzModule PSCommand_Register-AzModule PSCmdlet_Enable-AzureRmAlias PSCommand_Enable-AzureRmAlias PSCmdlet_Disable-AzureRmAlias PSCommand_Disable-AzureRmAlias PSCmdlet_Uninstall-AzureRm PSCommand_Uninstall-AzureRm PSCmdlet_Invoke-AzRestMethod PSCommand_Invoke-AzRestMethod PSCmdlet_Get-AzAccessToken PSCommand_Get-AzAccessToken PSCmdlet_Open-AzSurveyLink PSCommand_Open-AzSurveyLink PSCmdlet_Get-AzConfig PSCommand_Get-AzConfig PSCmdlet_Update-AzConfig PSCommand_Update-AzConfig PSCmdlet_Clear-AzConfig PSCommand_Clear-AzConfig PSCmdlet_Export-AzConfig PSCommand_Export-AzConfig PSCmdlet_Import-AzConfig PSCommand_Import-AzConfig PSIncludes_Cmdlet</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2025-05-24T15:50:00Z</S>
+          <S N="updated">2025-05-27T15:30:00Z</S>
           <S N="NormalizedVersion">5.0.1</S>
           <S N="Authors">Microsoft Corporation</S>
           <S N="IsPrerelease">false</S>

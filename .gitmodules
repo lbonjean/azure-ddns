@@ -1,3 +1,2 @@
-[submodule "qlancfg"]
-	path = qlancfg
-	url = https://github.com/lubonbvba/qlancfg
+[submodule "Modules/qlancfg"]
+	path = Modules/qlancfg
