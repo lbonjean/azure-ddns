@@ -19,10 +19,9 @@
 # Enable-AzureRmAlias
 if ($env:app_umi_client_id) {
     Connect-MgGraph -Identity -ClientId $env:app_umi_client_id
-    Write-Host "Authenticated to Azure CLI using Managed Identity with client ID: $($env:app_umi_client_id)"
+    Write-Host "Authenticated to Graph API using Managed Identity with client ID: $($env:app_umi_client_id)"
     Connect-AzAccount -Identity -AccountId $env:app_umi_client_id 
     Write-Host "Authenticated to Azure using Managed Identity with client ID: $($env:app_umi_client_id)"
-    $graphtoken = (Get-MgContext).AccessToken
 } else {
     #for debugging environement
     # User needs to be logged on to Azure CLI before running the function app
@@ -34,7 +33,9 @@ if ($env:app_umi_client_id) {
     $accountid=az account show --query user.name -o tsv
     $subscriptionid=az account show --query id -o tsv  
     Connect-AzAccount -AccessToken $aztoken -AccountId $accountid -Subscription $subscriptionid  
-  
+
+    $graphtoken=ConvertTo-SecureString -string (az account get-access-token --scope="https://graph.microsoft.com/Directory.AccessAsUser.All" | ConvertFrom-Json).accessToken -AsPlainText
+    connect-mggraph -accessToken $graphtoken
 }
 
 
